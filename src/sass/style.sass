@@ -1,13 +1,15 @@
 @import '1-tools/_normalize.sass'
-@import '2-helpers/_colors.sass'
+@import '2-helpers/_variables.sass'
+
 
 body
     background: $body-color
+    font-family: $main-font, $fallBack-font
 
 nav
     height: 70px
     background: $nav-color
-    border-bottom: 3px solid $accent-color
+    border-bottom: 3px solid $yellow-accent
     display: flex
     justify-content: space-between
 
@@ -15,8 +17,13 @@ nav
         display: flex
         justify-content: center
         align-items: center
-        margin-left: 10px
-        color: $soft-white
+        margin-left: 30px
+        color: $yellow-accent
+        
+        h2
+            font-weight: $medium
+            font-style: $italic
+            
 
         img
             height: 70px
@@ -25,7 +32,7 @@ nav
         display: flex
         justify-content: center
         align-items: center
-        padding: 10px
+        padding: 30px
         
         img
             width: 30px
@@ -33,24 +40,35 @@ nav
             margin: 5px
 
         input
-            background: $soft-white
-            border: 2px solid $accent-color
+            background: $dark-gray
+            border: 2px solid $yellow-accent
             border-radius: 50px
             height: 30px
             text-align: center
+            font-weight: $light
+            font-style: $italic
+            color: $bright-white
+
+            &::placeholder
+                color: $soft-white
+
 
 .wrapper
-    background: $body-color
     max-width: 1200px
     margin: auto
 
     #welcome
         width: 50%
         padding-bottom: 40px
-        color: $accent-color
+        color: $dark-gray
+        font-weight: $light
+        line-height: 1.5em
+        padding: 20px
 
     .header
-        color: $soft-white
+        color: $dark-gray
+        font-weight: $bold
+        font-style: 'italic'
         
     #grid
         display: grid
@@ -61,8 +79,15 @@ nav
         width: 200px
         height: 250px
         margin: 50px
-        background: purple
+        border: 3px solid $dark-gray
 
 
 footer
-    text-align: center
+    background: $dark-gray
+    display: flex
+    flex-direction: column
+    align-items: center
+    color: $yellow-accent
+
+    p
+        font-size: .7rem
