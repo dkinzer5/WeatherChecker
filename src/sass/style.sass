@@ -1,0 +1,68 @@
+@import '1-tools/_normalize.sass'
+@import '2-helpers/_colors.sass'
+
+body
+    background: $body-color
+
+nav
+    height: 70px
+    background: $nav-color
+    border-bottom: 3px solid $accent-color
+    display: flex
+    justify-content: space-between
+
+    #logo
+        display: flex
+        justify-content: center
+        align-items: center
+        margin-left: 10px
+        color: $soft-white
+
+        img
+            height: 70px
+
+    #zipFinder
+        display: flex
+        justify-content: center
+        align-items: center
+        padding: 10px
+        
+        img
+            width: 30px
+            height: 30px
+            margin: 5px
+
+        input
+            background: $soft-white
+            border: 2px solid $accent-color
+            border-radius: 50px
+            height: 30px
+            text-align: center
+
+.wrapper
+    background: $body-color
+    max-width: 1200px
+    margin: auto
+
+    #welcome
+        width: 50%
+        padding-bottom: 40px
+        color: $accent-color
+
+    .header
+        color: $soft-white
+        
+    #grid
+        display: grid
+        grid-template-columns: repeat(3, auto)
+        grid-template-rows: repeat(3, auto)
+
+    .box
+        width: 200px
+        height: 250px
+        margin: 50px
+        background: purple
+
+
+footer
+    text-align: center
