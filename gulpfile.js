@@ -66,7 +66,7 @@ function watchFiles() {
     });
     style();
     uglifyJS();
-    imageMin();
+    // imageMin();
     watch(styleSrc, style);
     watch(scriptSrc, uglifyJS);
     watch([styleDest, scriptDest, htmlSrc]).on('change', browserSync.reload);
