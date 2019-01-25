@@ -13,6 +13,10 @@ const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 
 const locationButton = document.querySelector('#locationFinder');
 const displayGrid = document.querySelector('#grid');
 const boxes = document.querySelectorAll('.box');
+const loading = document.querySelector('.location');
+const modal = document.querySelector('#simpleModal');
+const about = document.querySelector('#about');
+const closeBtn = document.querySelector('.closeBtn');
 
 
 
@@ -36,8 +40,8 @@ function getDeviceLocation() {
                 let daily = data.daily.data;
                 daily.forEach(day => {
                     //get temps and weather summary
-                    let highTemp = day.apparentTemperatureHigh; 
-                    let lowTemp = day.apparentTemperatureLow;
+                    let highTemp = Math.round(day.apparentTemperatureHigh); 
+                    let lowTemp = Math.round(day.apparentTemperatureLow);
                     let summary = day.summary;
                     //get timestamp and convert to date
                     let timestamp = day.time;
@@ -52,14 +56,15 @@ function getDeviceLocation() {
                                      </div>
                                      <div class="info">
                                         <p class="date">${months[month]} ${date}, ${year}</p>
-                                        <h1>${highTemp} / ${lowTemp}</h1>
+                                        <h1> &#x2B06; ${highTemp}°F</h1>
+                                        <h1> &#x2B07; ${lowTemp}°F</h1>
                                         <p>${summary}</p>
                                      </div>`;
                     div.className = 'box'; 
                     displayGrid.appendChild(div);
                 })
             })
-
+            loading.style.display = "none";
     }
 
     function error(e){
@@ -70,11 +75,28 @@ function getDeviceLocation() {
     navigator.geolocation.getCurrentPosition(success, error);
 }
 
+function closeModal() {
+    console.log('abc');
+    modal.style.display = "none";
+}
+
+function openModal() {
+    modal.style.display = "block";
+}
+
+function outsideClick(e) {
+    if (e.target == modal) {
+        modal.style.display = 'none';
+    }
+}
 
 /************************* Event Listeners **************************/
 locationButton.addEventListener('click', getDeviceLocation);
+about.addEventListener('click', openModal);
+closeBtn.addEventListener('click', closeModal);
+window.addEventListener('click', outsideClick);
 
-
+/*************************Window Load********************************/
 window.onload = function() {
-    getDeviceLocation();  
+    getDeviceLocation(); 
 }

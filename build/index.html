@@ -22,19 +22,56 @@
 
         <div id="zipFinder">
             <a href="#" id="locationFinder"><img src="./assets/img/location-icon.svg" alt=""></a>
-            <input type="text" placeholder="Enter Zip Code...">
-            <button type = 'submit' id="go">GO</button>
+            <a href="#" id="about">About</a>
+            <!-- <input type="text" placeholder="Enter Zip Code..." onfocus="this.placeholder = ''"
+            onblur="this.placeholder = 'Enter Zip Code...'">
+            <button type = 'submit' id="go">GO</button> -->
         </div>
     </nav>
+    
+    <div id="simpleModal" class="modal">
+        <div class="modal-content">
+            <span class="closeBtn">&times;</span>
+            <h1>How this site works</h1>
+            <p>This site is <a href="https://darksky.net/poweredby/" target="_blank">powered by DarkSky Api</a> to get the weather based on Longitude and Latitude. Upon load, the browser tries to get your device location and then uses the coordinates to call the weather using the ES6 FETCH API</p>
+            <h1>About the code..</h1>
+            <p>You can see the code for this project on my <a href="https://github.com/dkinzer5/WeatherChecker" target="_blank">Github</a>, where I have the source code as well as the compiled and compressed version! </p>
+            <h2>Technologies Used: </h2>
+            <div class="tech">
+                <ul class="stack1">
+                    <li class = "bold">HTML5</li>
+                    <li class = "bold">CSS3</li>
+                    <li class = "bold">SASS</li>
+                    <li class = "bold">Vanilla Javascript</li>
+                        <ul>
+                            <li>Fetch API</li>
+                            <li>Query Selector</li>
+                            <li>Event Listeners</li>
+                            <li>Template Literals</li>
+                        </ul>
+                </ul>
 
+                <ul class = "stack2">
+                    <li class = "bold"> Gulp Js (task-runner)</li>
+                        <ul>
+                            <li>CleanCSS</li>
+                            <li>Autoprefixer</li>
+                            <li>Image Min</li>
+                            <li>UglifyJS</li>
+                            <li>BrowserSync</li>
+                        </ul>
+                </ul>
+            </div>
 
+        </div>
+    </div>
     <div class="wrapper">
         <section id="intro">
-            <h1 id="welcome">This is WeatherChecker! Input your zip code, or use the location finder to use device
-                location...</h1>
+            <h1 id="welcome">This is WeatherChecker! It uses your device location to get the local weather!</h1>
             <h1 class="header">7 Day High's and Low's</h1>
         </section>
-
+        
+        <p class="location">Acquiring location...</p>
         <section id="grid">
 
         </section>

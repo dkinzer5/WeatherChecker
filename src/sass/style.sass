@@ -6,103 +6,207 @@ body
     background: $body-color
     font-family: $main-font, $fallBack-font
 
-nav
-    height: 70px
-    background: $nav-color
-    border-bottom: 3px solid $yellow-accent
-    display: flex
-    justify-content: space-between
-
-    #logo
+    nav
+        height: 70px
+        width: 100%
+        background: $nav-color
+        border-bottom: 3px solid $yellow-accent
         display: flex
-        justify-content: center
-        align-items: center
-        margin-left: 30px
-        color: $yellow-accent
-        
-        h2
-            font-weight: $medium
-            font-style: $italic
+        justify-content: space-between
+
+        #logo
+            display: flex
+            justify-content: center
+            align-items: center
+            margin-left: 30px
+            color: $yellow-accent
             
-        img
-            height: 70px
+            h2
+                font-weight: $medium
+                font-style: $italic
+                
+            img
+                height: 70px
 
-    #zipFinder
-        display: flex
-        justify-content: center
-        align-items: center
-        padding: 30px
-        
-        img
-            width: 30px
-            height: 30px
-            margin: 5px
+        #zipFinder
+            display: flex
+            justify-content: center
+            align-items: center
+            padding: 30px
 
-        input
-            background: $dark-gray
-            border: 2px solid $yellow-accent
-            border-radius: 50px
-            height: 30px
-            text-align: center
-            font-weight: $light
-            font-style: $italic
-            color: $bright-white
-
-            &::placeholder
+            #about
                 color: $soft-white
 
-        #go
-            background: $dark-gray
-            color: $bright-white
-            border: 3px solid $yellow-accent
-            padding: 10px
-            margin: 10px
-            border-radius: 50%
+                &:hover
+                    color: $yellow-accent
+                    transform: scale(1.05)
+            
+            img
+                width: 30px
+                height: 30px
+                margin: 5px
 
+            input
+                background: $dark-gray
+                border: 2px solid $yellow-accent
+                border-radius: 50px
+                height: 30px
+                text-align: center
+                font-weight: $light
+                font-style: $italic
+                color: $bright-white
 
-.wrapper
-    max-width: 1200px
-    margin: auto
+                &::placeholder
+                    color: $soft-white
 
-    #welcome
-        width: 50%
-        padding-bottom: 40px
-        color: $dark-gray
-        font-weight: $light
-        line-height: 1.5em
-        padding: 20px
+            #go
+                background: $dark-gray
+                color: $bright-white
+                border: 3px solid $yellow-accent
+                padding: 10px
+                margin: 10px
+                border-radius: 50%
 
-    .header
-        color: $dark-gray
-        font-weight: $bold
-        font-style: 'italic'
-        
-    #grid
-        display: grid
-        grid-template-columns: repeat(3, auto)
-        grid-template-rows: repeat(4, auto)
+    .modal
+        display: none
+        position: fixed
+        z-index: 1
+        left: 0
+        top: 0
+        height: 100%
+        width: 100%
+        overflow: auto
+        background: rgba(0,0,0,0.5)
 
-    .box
-        width: 250px
-        height: auto
-        margin: 50px
-        border: 3px solid $dark-gray
-        text-align: center
-        border: 4px solid $yellow-accent
+        .tech
+            display: flex
+            justify-content: space-around
+            font-size: 1.5em
 
-        .day
-            border-bottom: 4px solid $yellow-accent
+            .stack1, .stack2
+                margin: 35px
+                line-height: 1.7em
 
-        .info
-            .date
-                font-size: .7em
+                .bold
+                    font-weight: $bold
 
-footer
-    background: $dark-gray
-    display: flex
-    flex-direction: column
-    align-items: center
-    color: $yellow-accent
+        .modal-content
+            max-width: 700px
+            background-color: #f4f4f4
+            margin: 10% auto
+            padding: 20px
+            width: 70%
+            height: 40%
+            box-shadow: 0 5px 8px 0 rgba(0,0,0,0.2), 0 7px 20px 0 rgba(0,0,0,0.2)
+            color: #444
+            overflow: auto
+            font-weight: $light
 
-    p
-        font-size: .7rem
+        .closeBtn
+            color: #ccc
+            float: right
+            font-size: 30px
+
+            &:hover, &:focus
+                color: #000000
+                text-decoration: none
+                cursor: pointer
+
+        a
+            color: $nav-color
+            text-decoration: underline
+    .wrapper
+        max-width: 1200px
+        margin: auto
+
+        #welcome
+            width: 50%
+            padding-bottom: 40px
+            color: $dark-gray
+            font-weight: $light
+            line-height: 1.5em
+            padding: 20px
+
+        .header
+            color: $dark-gray
+            font-weight: $bold
+            font-style: 'italic'
+
+        .location
+            padding: 50px
+            text-align: center
+            
+        #grid
+            display: grid
+            grid-template-columns: repeat(3, auto)
+            grid-template-rows: repeat(4, auto)
+           
+
+            .box
+                width: 250px
+                height: auto
+                margin: 30px auto
+                border: 3px solid $dark-gray
+                text-align: center
+                border: 4px solid $yellow-accent
+
+                p
+                    line-height: 1.5em
+
+                .day
+                    border-bottom: 4px solid $yellow-accent
+
+                .info
+                    .date
+                        font-size: .7em
+
+    footer
+        background: $dark-gray
+        display: flex
+        flex-direction: column
+        align-items: center
+        color: $yellow-accent
+
+        p
+            font-size: .7rem
+
+@media screen and (max-width: 500px)
+    body
+        nav
+
+            #logo
+                img
+                    margin-left: -30px
+
+                h2
+                    display: none
+
+            #zipFinder
+                width: 30%
+                margin-right: -10px
+        .wrapper
+            #intro
+                #welcome
+                    font-size: 1.4em
+
+        .modal
+            .modal-content
+                height: 90%
+                .tech
+                    flex-direction: column
+
+                    .stack1, .stack2
+                        margin: 10px auto
+
+@media screen and (max-width: 800px)
+    body
+        .wrapper
+            #grid
+                display: flex
+                flex-direction: column
+                justify-content: center
+
+                .box
+                    align-self: center
+
+    
